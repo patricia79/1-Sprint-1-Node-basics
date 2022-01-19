@@ -45,9 +45,5 @@ Escriu una function creadora d'objectes que faci instàncies d'una classe abstra
 Invoca-la amb diferents definicions.
 */
 
-function Animal(nom) {
-    this.nom = nom;
-    console.log(`Hola, soc el ${(nom)}`)
-}
-let animal1 = new Animal('Garfield');
+
 
