@@ -42,8 +42,8 @@ patricia.dirNom(patricia.nom);
 
 /*  Nivell 3 Exercici 1 
 Escriu una function creadora d'objectes que faci instàncies d'una classe abstracta.
-Invoca-la amb diferents definicions.
-*/
+Invoca-la amb diferents definicions.*/
+
 
 
 
