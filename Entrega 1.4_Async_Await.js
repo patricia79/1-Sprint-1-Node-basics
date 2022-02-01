@@ -26,18 +26,18 @@ let salaries = [{
     salary: 2000
 }];
 
-getEmployee = id => {
+let getEmployee = (id) => {
     return new Promise((resolve, reject) => {
-        let i = employees.findIndex(employee => employee.id === id)
-        if (i < 0) {
-            reject(id)
-                ;
-        } else {
-            resolve(id)
-
+        let employeeSearch = employees.find((obj) => obj.id == id)
+        if (!employeeSearch) {
+            reject("n1e1 - Empleat no trobat")
         }
+
+        resolve(employeeSearch)
+
     })
-};
+}
+
 let employee = new Object();
 employee.id = 3;
 getEmployee(employee.id).then(id => console.log("n1e1 - Trobat"))
@@ -69,13 +69,14 @@ getSalary(employee).then(salary => console.log("n1e1 - L'Empleat te un salari de
 Crea una funció asíncrona que rebi un id d'empleat i imprimeixi per pantalla el nom de l'empleat i el seu 
 salari, usant les funcions que has definit a l'exercici anterior */
 
-async function asyncEmployee(id) {
-    employeeId = await getEmployee(id);
-    salaryId = await getSalary(employeeId);
-    console.log(`Empleat ${employees[employeeId].name} amb salari ${salaries[salaryId].salary}`);
+let asyncEmployee = async (id) => {
+    let employee = await getEmployee(id)
+    let salary = await getSalary(employee)
+    console.log(`L'Empleat ${employee.id} amb salari ${salary.id}`)
 }
 
 asyncEmployee(1);
+
 
 
 /* N2 E1 
@@ -84,7 +85,7 @@ Crea una nova funció asíncrona que cridi a una altra que retorni una Promise q
 
 asyncFunction2 = () => {
     return new Promise(resolve => {
-        setTimeout(() => resolve('2 seconds later...'), 2000)
+        setTimeout(() => resolve("2 seconds later..."), 2000)
     })
 }
 
