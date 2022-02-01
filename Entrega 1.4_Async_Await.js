@@ -67,7 +67,7 @@ getSalary(employee).then(salary => console.log("n1e1 - L'Empleat te un salari de
 
 /* N1 E2 
 Crea una funció asíncrona que rebi un id d'empleat i imprimeixi per pantalla el nom de l'empleat i el seu 
-salari, usant les funcions que has definit a l'exercici anterior 
+salari, usant les funcions que has definit a l'exercici anterior */
 
 async function asyncEmployee(id) {
     employeeId = await getEmployee(id);
