@@ -22,20 +22,20 @@ Crea una classe Persona que rebi un paràmetre 'nom' al ser instanciada.
 La classe inclourà un mètode dirNom que imprimeixi per consola el paràmetre 'nom'. 
 Invoca el mètode dirNom des de fora de la classe.*/
 // Nivell 2 Exercici 2 El mètode dirNom() ha de dir el nom del paràmetre que té l'objecte, no un paràmetre extra!   
-
 class Persona {
 
     constructor(nom) {
         this.nom = nom;
     }
 
-    dirNom(nom) {
-        console.log(nom);
+    dirNom() {
+        console.log(this.nom);
     }
 }
-
 var patricia = new Persona("Pol");
-patricia.dirNom(patricia.nom);
+patricia.dirNom();
+
+
 
 
 /*  Nivell 3 Exercici 1 
