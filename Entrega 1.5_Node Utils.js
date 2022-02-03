@@ -26,8 +26,8 @@ let missatgeN1E2 = async () => {
 };
 missatgeN1E2();
 
-/* N1 Ex3 ok
-Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.
+/* N1 Ex3
+Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.*/
 
 function contFitxer(fitxer) {
 
@@ -40,8 +40,8 @@ contFitxer('fitxerN1Ex2.txt');
 
 
 
- N2 Ex1 no
-Crea una funció que comprimeixi el fitxer del nivell 1.
+ /*N2 Ex1 no
+Crea una funció que comprimeixi el fitxer del nivell 1.*/
 
 console.log("Nivel 2:");
 
