@@ -1,4 +1,10 @@
 
+
+// Crea els tests corresponents per verificar el funcionament de l'exercici Async / Await Nivell 1 - Exercici 1
+
+
+
+
 const { it, expect } = require("@jest/globals");
 const Calculadora = require('../app/codi operacions');
 
