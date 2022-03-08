@@ -24,7 +24,7 @@ let imprimir_resultat = function imprimir(missatge) {
   console.log(missatge);
 };
 
-let nombre_cub = (nombre, callback) => {
+nombre_cub = (nombre, callback) => {
   resultat = Math.pow(nombre, 3);
 
   callback(`El cub és: ${resultat}`);
@@ -58,21 +58,33 @@ let salaries = [{
 }];
 */
 
+let miPromesa = new Promise((resolver, rechazar) => {
+  let expresion = true;
+  if(expresion)
+      resolver('Resolvió correcto');
+  else
+      rechazar('Se produjo un error');    
+});
+
+//miPromesa.then( valor => console.log(valor), error => console.log(error));
+miPromesa.then(valor => console.log(valor)).catch(error=>console.log(error));
+   
 getEmployee = id => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolved, rejected) => {
     let i = employees.findIndex((employee) => employee.id === id);
     if (i < 0) {
-      reject(id);
+      rejected(id);
     } else {
-      resolve(id);
+      resolved(id);
     }
   });
 };
-let employee = new Object();
+
+ let employee = new Object(id);
 employee.id = 3;
 getEmployee(employee.id)
-  .then((id) => console.log("n2e1 - Trobat"))
-  .catch((id) => console.error("n2e1 - No trobat"));
+  .then((resolved) => console.log("n2e1 - Trobat"))
+  .catch((rejected) => console.error("n2e1 - No trobat"));
 
   let getEmployee = id => {
     return new Promise((resolve, reject) => {
