@@ -27,22 +27,27 @@ let salaries = [{
 }];
 
 let getEmployee = (id) => {
-    return new Promise((resolve, reject) => {
-        let employeeSearch = employees.find((obj) => obj.id == id)
-        if (!employeeSearch) {
-            reject("n1e1 - Empleat no trobat")
-        }
-
-        resolve(employeeSearch)
-
+    return new Promise((resolved, rejected) => {
+      let treballador = employees.findIndex((employee) => employee.id === id);
+      if (treballador) {
+        resolved(employees[id]);
+      } else {
+        rejected("Error, no hi ha cap dada de cap treballador");
+      }
+    });
+  };
+  
+  id= 2;
+  
+  getEmployee(id)
+    .then((resolved) => {
+      console.log(resolved);
     })
-}
-
-let employee = new Object();
-employee.id = 3;
-getEmployee(employee.id).then(id => console.log("n1e1 - Trobat"))
-    .catch(id => console.error("n1e1 - No trobat"));
-
+    .catch((error) => {
+      console.error(error);
+    });
+  
+  
 getSalary = employee => {
     return new Promise((resolve, reject) => {
         let i = 0;
