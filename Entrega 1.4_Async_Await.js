@@ -1,5 +1,5 @@
 
-/*N1 E1 
+/*N1 E1 OK MED
 Donats els objectes employees i salaries, crea una arrow function getEmployee que retorni una Promise
  efectuant la cerca en l'objecte pel seu id. Crea una altra arrow function getSalary que rebi com a 
  paràmetre un objecte employee i retorni el seu salari.*/
@@ -65,7 +65,7 @@ getSalary(employee).then(salary => console.log("n1e1 - L'Empleat te un salari de
 
 
 
-/* N1 E2 
+/* N1 E2  OK MAX
 Crea una funció asíncrona que rebi un id d'empleat i imprimeixi per pantalla el nom de l'empleat i el seu 
 salari, usant les funcions que has definit a l'exercici anterior */
 
@@ -79,7 +79,7 @@ asyncEmployee(1);
 
 
 
-/* N2 E1 
+/* N2 E1 OK MAX
 Crea una nova funció asíncrona que cridi a una altra que retorni una Promise que efectuï la seva funció
  resolve() després de 2 segons de la seva invocació */
 

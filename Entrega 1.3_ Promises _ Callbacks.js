@@ -33,98 +33,99 @@ nombre_cub = (nombre, callback) => {
 nombre_cub(4, imprimir_resultat);
 
 /* N2 E1 Donats els objectes employees i salaries, crea una arrow function getEmployee que retorni 
-una Promise efectuant la cerca en l'objecte pel seu id 
+una Promise efectuant la cerca en l'objecte pel seu id */
 
-let employees = [{
+let employees = [
+  {
     id: 1,
-    name: 'Linux Torvalds'
-}, {
+    name: "Linux Torvalds",
+  },
+  {
     id: 2,
-    name: 'Bill Gates'
-}, {
+    name: "Bill Gates",
+  },
+  {
     id: 3,
-    name: 'Jeff Bezos'
-}];
+    name: "Jeff Bezos",
+  },
+];
 
-let salaries = [{
+let salaries = [
+  {
     id: 1,
-    salary: 4000
-}, {
+    salary: 4000,
+  },
+  {
     id: 2,
-    salary: 1000
-}, {
+    salary: 1000,
+  },
+  {
     id: 3,
-    salary: 2000
-}];
-*/
+    salary: 2000,
+  },
+];
 
-getEmployee = (id) => {
+let employee = new Object();
+
+let getEmployee = (id) => {
   return new Promise((resolved, rejected) => {
-    let treballador = employees.findIndex((employee) => employee.id === id);
-
-    if (treballador) {
-      resolved(employee.name);
+    let index_treballador = employees.findIndex(
+      (employee) => employee.id === id
+    );
+    if (index_treballador >= 0) {
+      resolved(employees[index_treballador]);
     } else {
-      rejected("Error");
+      rejected("Error, no hi ha cap dada de cap treballador");
     }
   });
 };
 
 getEmployee(1)
-  .then((resolved) => console.log("n2e1 - Trobat"))
-  .catch((rejected) => console.error("n2e1 - No trobat"));
+  .then((resolved) => {
+    console.log(resolved);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 /*N2 E2 Crea una altra arrow function getSalary que rebi com a paràmetre un objecte employee i retorni el
-seu salari.*/
+seu salari. */
 
-getSalary = (employee) => {
-  return new Promise((resolve, reject) => {
-    let i = 0;
-    for (i; i < salaries.length; i++) {
-      if (salaries[i].id == employee.id) {
-        resolve(salaries[i].salary);
+let getSalary = (employee) => {
+  return new Promise((resolved, rejected) => {
+    let index = 0;
+    for (index; index < salaries.length; index++) {
+      if (salaries[index].id == employee.id) {
+        resolved(salaries[index].salary);
         break;
       }
-    }
-    if (i >= salaries.length) {
-      reject(employee.id);
+      if (index >= salaries.length) {
+        rejected("Empleat no trobat");
+      }
     }
   });
 };
 
-employee = new Object();
-employee.id = 1;
-getSalary(employee)
-  .then((salary) => console.log("n2e2 - L'Empleat te un salari de: " + salary))
-  .catch((id) => console.error("n2e2 - Empleat no trobat"));
+let employee1 = new Object();
+employee1.id = 3;
+getSalary(employee1)
+  .then((salary) => console.log("L'Empleat te un salari de: " + salary))
+  .catch((rejected) => console.error(rejected));
 
 /* N2 E3 Invoca la primera funció getEmployee i després getSalary niant l'execució de les dues promises.*/
 
-getSalary2 = (id) => {
-  return new Promise((resolve, reject) => {
-    let i = 0;
-    for (i; i < salaries.length; i++) {
-      if (salaries[i].id == id) {
-        resolve(salaries[i].salary);
-        break;
-      }
-    }
-    if (i >= salaries.length) {
-      reject(id);
-    }
-  });
-};
-
-getEmployee(2)
-  .then((id) => getSalary2(id))
-  .then((salary) => console.log("n2e3 - El seu salari es: " + salary))
-  .catch((id) => console.error("n2e3 - No trobat"));
+getEmployee(1)
+  .then((resolved) => {
+    console.log("n2e3:");
+    return getSalary(resolved);
+  })
+  .then((resolved) => console.log(resolved))
+  .catch((rejected) => console.log(rejected));
 
 /*N3 E1 Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el
-mostri per  la consola.*/
+mostri per  la consola. */
 
-getEmployee(1)
-  .then((id) => getSalary2(id))
-  .then((salary) => console.log("n3e1 - El seu salary es: " + salary))
-  .catch((id) => console.error("n3e1 - id: " + id + " no trobat"));
-
+getEmployee(5)
+  .then((id) => getSalary(id))
+  .then((salary) => console.log("n3e1 - El seu salari es: " + salary))
+  .catch((id) => console.error("n3e1 " + id + " no trobat"));
