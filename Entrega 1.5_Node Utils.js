@@ -1,5 +1,5 @@
 
-/* N1 Ex1 
+/* N1 Ex1 OK MAX
 Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.*/
 
 let missatge = () => {
@@ -10,7 +10,7 @@ let missatge = () => {
 missatge();
 
 
-/* N1 Ex2 
+/* N1 Ex2 OK MAX
 Crea una funció que, en executar-la, escrigui una frase en un fitxer.*/
 
 let missatgeN1E2 = "Aquest és el missatge de Nadal";
@@ -26,7 +26,7 @@ let missatgeN1E2 = async () => {
 };
 missatgeN1E2();
 
-/* N1 Ex3
+/* N1 Ex3 OK MAX
 Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.*/
 
 function contFitxer(fitxer) {
@@ -40,7 +40,7 @@ contFitxer('fitxerN1Ex2.txt');
 
 
 
- /*N2 Ex1 no
+ /*N2 Ex1 OK MED
 Crea una funció que comprimeixi el fitxer del nivell 1.*/
 
 console.log("Nivel 2:");
@@ -67,6 +67,5 @@ showFilesFromDir();
 /* N2 Ex2 no
 
 Crea una funció que llisti per la consola el contingut del directori d'usuari de l'ordinador
-utilizant Node Child Processes.
- - La segona part del N2 ha de mostrar la carpeta de l'usuari (de windows o el que sigui), 
- no la carpeta on esta l'script!*/
+utilizant Node Child Processes.*/
+ 
