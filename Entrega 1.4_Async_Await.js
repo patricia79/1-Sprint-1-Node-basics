@@ -25,50 +25,49 @@ let salaries = [{
     id: 3,
     salary: 2000
 }];
+let employee = new Object();
 
 let getEmployee = (id) => {
-    return new Promise((resolved, rejected) => {
-      let treballador = employees.findIndex((employee) => employee.id === id);
-      if (treballador) {
-        resolved(employees[id]);
-      } else {
-        rejected("Error, no hi ha cap dada de cap treballador");
-      }
-    });
-  };
-  
-  id= 2;
-  
-  getEmployee(id)
-    .then((resolved) => {
-      console.log(resolved);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  
-  
-getSalary = employee => {
-    return new Promise((resolve, reject) => {
-        let i = 0;
-        for (i; i < salaries.length; i++) {
-            if (salaries[i].id == employee.id) {
-                resolve(salaries[i].salary);
-                break;
-            }
-        }
-        if (i >= salaries.length) {
-            reject(employee.id);
-        }
-    })
+  return new Promise((resolved, rejected) => {
+    let index_treballador = employees.findIndex(
+      (employee) => employee.id === id
+    );
+    if (index_treballador >= 0) {
+      resolved(employees[index_treballador]);
+    } else {
+      rejected("Error, no hi ha cap dada de cap treballador");
+    }
+  });
 };
 
-employee = new Object();
-employee.id = 1;
-getSalary(employee).then(salary => console.log("n1e1 - L'Empleat te un salari de: " + salary))
-    .catch(id => console.error("n1e1 - Empleat no trobat"));
+getEmployee(1)
+  .then((resolved) => {
+    console.log(resolved);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
+let getSalary = (employee) => {
+  return new Promise((resolved, rejected) => {
+    let index = 0;
+    for (index; index < salaries.length; index++) {
+      if (salaries[index].id == employee.id) {
+        resolved(salaries[index].salary);
+        break;
+      }
+      if (index >= salaries.length) {
+        rejected("Empleat no trobat");
+      }
+    }
+  });
+};
 
+let employee1 = new Object();
+employee1.id = 3;
+getSalary(employee1)
+  .then((salary) => console.log("L'Empleat te un salari de: " + salary))
+  .catch((rejected) => console.error(rejected));
 
 /* N1 E2  OK MAX
 Crea una funció asíncrona que rebi un id d'empleat i imprimeixi per pantalla el nom de l'empleat i el seu 
@@ -81,8 +80,6 @@ let asyncEmployee = async (id) => {
 }
 
 asyncEmployee(1);
-
-
 
 /* N2 E1 OK MAX
 Crea una nova funció asíncrona que cridi a una altra que retorni una Promise que efectuï la seva funció
