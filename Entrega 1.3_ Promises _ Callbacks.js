@@ -58,7 +58,7 @@ let salaries = [{
 }];
 */
 
-getEmployee = (id) => {
+getEmployee = id => {
   return new Promise((resolve, reject) => {
     let i = employees.findIndex((employee) => employee.id === id);
     if (i < 0) {
@@ -73,6 +73,21 @@ employee.id = 3;
 getEmployee(employee.id)
   .then((id) => console.log("n2e1 - Trobat"))
   .catch((id) => console.error("n2e1 - No trobat"));
+
+  let getEmployee = id => {
+    return new Promise((resolve, reject) => {
+        let findEmployee = employees.find(employee => employee.id === id)
+        if (findEmployee) {
+            resolve(findEmployee.name);
+        } else {
+            reject(`El ID ${id} no es valido, tiene que ser entre 1 y 3`);
+        }
+    })
+}
+
+getEmployee(2)
+    .then(resolve => console.log(resolve))
+    .catch(err => console.log(err))
 
 /*N2 E2 Crea una altra arrow function getSalary que rebi com a paràmetre un objecte employee i retorni el
 seu salari.*/
