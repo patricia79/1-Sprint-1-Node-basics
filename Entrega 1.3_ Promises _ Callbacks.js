@@ -58,48 +58,21 @@ let salaries = [{
 }];
 */
 
-let miPromesa = new Promise((resolver, rechazar) => {
-  let expresion = true;
-  if(expresion)
-      resolver('Resolvió correcto');
-  else
-      rechazar('Se produjo un error');    
-});
-
-//miPromesa.then( valor => console.log(valor), error => console.log(error));
-miPromesa.then(valor => console.log(valor)).catch(error=>console.log(error));
-   
-getEmployee = id => {
+getEmployee = (id) => {
   return new Promise((resolved, rejected) => {
-    let i = employees.findIndex((employee) => employee.id === id);
-    if (i < 0) {
-      rejected(id);
+    let treballador = employees.findIndex((employee) => employee.id === id);
+
+    if (treballador) {
+      resolved(employee.name);
     } else {
-      resolved(id);
+      rejected("Error");
     }
   });
 };
 
- let employee = new Object(id);
-employee.id = 3;
-getEmployee(employee.id)
+getEmployee(1)
   .then((resolved) => console.log("n2e1 - Trobat"))
   .catch((rejected) => console.error("n2e1 - No trobat"));
-
-  let getEmployee = id => {
-    return new Promise((resolve, reject) => {
-        let findEmployee = employees.find(employee => employee.id === id)
-        if (findEmployee) {
-            resolve(findEmployee.name);
-        } else {
-            reject(`El ID ${id} no es valido, tiene que ser entre 1 y 3`);
-        }
-    })
-}
-
-getEmployee(2)
-    .then(resolve => console.log(resolve))
-    .catch(err => console.log(err))
 
 /*N2 E2 Crea una altra arrow function getSalary que rebi com a paràmetre un objecte employee i retorni el
 seu salari.*/
@@ -122,7 +95,7 @@ getSalary = (employee) => {
 employee = new Object();
 employee.id = 1;
 getSalary(employee)
-  .then((salary) => console.log("n2e2 - L'Empleat te un salary de: " + salary))
+  .then((salary) => console.log("n2e2 - L'Empleat te un salari de: " + salary))
   .catch((id) => console.error("n2e2 - Empleat no trobat"));
 
 /* N2 E3 Invoca la primera funció getEmployee i després getSalary niant l'execució de les dues promises.*/
@@ -144,13 +117,14 @@ getSalary2 = (id) => {
 
 getEmployee(2)
   .then((id) => getSalary2(id))
-  .then((salary) => console.log("n2e3 - El seu salary es: " + salary))
+  .then((salary) => console.log("n2e3 - El seu salari es: " + salary))
   .catch((id) => console.error("n2e3 - No trobat"));
 
 /*N3 E1 Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el
 mostri per  la consola.*/
 
-getEmployee(5)
+getEmployee(1)
   .then((id) => getSalary2(id))
   .then((salary) => console.log("n3e1 - El seu salary es: " + salary))
   .catch((id) => console.error("n3e1 - id: " + id + " no trobat"));
+
