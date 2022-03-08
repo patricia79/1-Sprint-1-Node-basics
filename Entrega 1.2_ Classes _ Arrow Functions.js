@@ -34,6 +34,7 @@ patricia.dirNom();
 /*  Nivell 3 Exercici 1 
 Escriu una function creadora d'objectes que faci instàncies d'una classe abstracta.
 Invoca-la amb diferents definicions.
+
 Las clases abstractas se pueden definir como clases que no se pueden instanciar, es decir, cuya referencia 
 de objeto no se puede crear y contiene dentro de ella, uno o más métodos abstractos.
 Un método abstracto es un método que solo puede declararse pero no tiene implementación. Las clases abstractas
