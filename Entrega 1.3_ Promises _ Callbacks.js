@@ -17,11 +17,12 @@ numeroMayorMenor5()
   .then((resolve) => console.log(resolve))
   .catch((reject) => console.error(reject));
 
-/* N1 E2 Crea una arrow function que rebi un paràmetre i una funció callback i li passi a la funció 
-un missatge o un altre (que s'imprimirà per consola) en funció del paràmetre rebut.*/
+/* N1 E2 Crea una arrow function "nombre_cub" que rebi un paràmetre "nombre" i una funció callback 
+"imprimir_resultat"; i  "nombre_cub" passi a la funció  "imprimir_resultat" dos missatges diferents
+(que s'imprimirà per consola) en funció del paràmetre rebut "nombre".*/
 
-let imprimir_resultat = function imprimir(missatge) {
-  console.log(missatge);
+let imprimir_resultat = function imprimir() {
+  console.log();
 };
 
 nombre_cub = (nombre, callback) => {
