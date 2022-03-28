@@ -17,6 +17,8 @@ numeroMayorMenor5()
   .then((resolve) => console.log(resolve))
   .catch((reject) => console.error(reject));
 
+  numeroMayorMenor5();
+
 /* N1 E2 Crea una arrow function "nombre_cub" que rebi un paràmetre "nombre" i una funció callback 
 "imprimir_resultat"; i  "nombre_cub" passi a la funció  "imprimir_resultat" dos missatges diferents
 (que s'imprimirà per consola) en funció del paràmetre rebut "nombre".*/
@@ -34,7 +36,7 @@ nombre_cub = (nombre, callback) => {
 nombre_cub(4, imprimir_resultat);
 
 /* N2 E1 Donats els objectes employees i salaries, crea una arrow function getEmployee que retorni 
-una Promise efectuant la cerca en l'objecte pel seu id */
+una Promise efectuant la cerca en l'objecte "employees" pel seu id */
 
 let employees = [
   {
@@ -67,23 +69,25 @@ let salaries = [
 ];
 
 let employee = new Object();
+// index_treballador[posició array]
 
-let getEmployee = (id) => {
-  return new Promise((resolved, rejected) => {
-    let index_treballador = employees.findIndex(
-      (employee) => employee.id === id
-    );
-    if (index_treballador >= 0) {
-      resolved(employees[index_treballador]);
-    } else {
-      rejected("Error, no hi ha cap dada de cap treballador");
+let getEmployee = id => {
+
+  return new Promise((resolve, rejecte) => {
+
+    let index_treballador = employees.findIndex((employee) => employee.id === id);
+
+    if (index_treballador >= 0) {resolve(employees[index_treballador]);} 
+    
+    else {
+      rejecte("Error, no hi ha cap dada de cap treballador");
     }
   });
 };
 
 getEmployee(1)
-  .then((resolved) => {
-    console.log(resolved);
+  .then((resolve) => {
+    console.log(resolve);
   })
   .catch((error) => {
     console.error(error);
@@ -130,3 +134,5 @@ getEmployee(5)
   .then((id) => getSalary(id))
   .then((salary) => console.log("n3e1 - El seu salari es: " + salary))
   .catch((id) => console.error("n3e1 " + id + " no trobat"));
+
+  
