@@ -97,35 +97,46 @@ getEmployee(1)
 seu salari. */
 
 let getSalary = (employee) => {
-  return new Promise((resolved, rejected) => {
-    let index = 0;
+
+  return new Promise((resolve, rejecte) => {
+    
+     let index = 0;
+
     for (index; index < salaries.length; index++) {
+
       if (salaries[index].id == employee.id) {
-        resolved(salaries[index].salary);
+
+        resolve(salaries[index].salary);
         break;
       }
+
       if (index >= salaries.length) {
-        rejected("Empleat no trobat");
+
+        rejecte("Empleat no trobat");
       }
     }
   });
 };
 
 let employee1 = new Object();
+
 employee1.id = 3;
+
 getSalary(employee1)
+
   .then((salary) => console.log("L'Empleat te un salari de: " + salary))
-  .catch((rejected) => console.error(rejected));
+
+  .catch((rejecte) => console.error(rejecte));
 
 /* N2 E3 Invoca la primera funció getEmployee i després getSalary niant l'execució de les dues promises.*/
 
 getEmployee(1)
-  .then((resolved) => {
+  .then((resolve) => {
     console.log("n2e3:");
-    return getSalary(resolved);
+    return getSalary(resolve);
   })
-  .then((resolved) => console.log(resolved))
-  .catch((rejected) => console.log(rejected));
+  .then((resolve) => console.log(resolve))
+  .catch((rejecte) => console.log(rejecte));
 
 /*N3 E1 Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el
 mostri per  la consola. */
