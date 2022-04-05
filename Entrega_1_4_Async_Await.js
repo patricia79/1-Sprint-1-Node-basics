@@ -28,36 +28,36 @@ let salaries = [{
 let employee = new Object();
 
 let getEmployee = (id) => {
-  return new Promise((resolved, rejected) => {
+  return new Promise((resolve, reject) => {
     let index_treballador = employees.findIndex(
       (employee) => employee.id === id
     );
     if (index_treballador >= 0) {
-      resolved(employees[index_treballador]);
+      resolve(employees[index_treballador]);
     } else {
-      rejected("Error, no hi ha cap dada de cap treballador");
+      reject("Error, no hi ha cap dada de cap treballador");
     }
   });
 };
 
 getEmployee(1)
-  .then((resolved) => {
-    console.log(resolved);
+  .then((resolve) => {
+    console.log(resolve);
   })
   .catch((error) => {
     console.error(error);
   });
 
 let getSalary = (employee) => {
-  return new Promise((resolved, rejected) => {
+  return new Promise((resolve, reject) => {
     let index = 0;
     for (index; index < salaries.length; index++) {
       if (salaries[index].id == employee.id) {
-        resolved(salaries[index].salary);
+        resolve(salaries[index].salary);
         break;
       }
       if (index >= salaries.length) {
-        rejected("Empleat no trobat");
+        reject("Empleat no trobat");
       }
     }
   });
@@ -67,7 +67,7 @@ let employee1 = new Object();
 employee1.id = 3;
 getSalary(employee1)
   .then((salary) => console.log("L'Empleat te un salari de: " + salary))
-  .catch((rejected) => console.error(rejected));
+  .catch((reject) => console.error(reject));
 
 /* N1 E2  OK MAX
 Crea una funció asíncrona que rebi un id d'empleat i imprimeixi per pantalla el nom de l'empleat i el seu 
