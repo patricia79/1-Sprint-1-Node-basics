@@ -2,22 +2,20 @@
 Invoca-la passant-li les dues funcions de manera que imprimeixin un missatge diferent depenent de
  si la Promise es resol o no.*/
 
-function numeroMayorMenor5() {
+function nombreMesMenys4() {
   return new Promise((resolve, reject) => {
-   let numero = Math.floor(Math.random() * 10);
-    console.log(numero);
-    if (numero > 5) {
-      resolve("És més gran que 5.");
+    nombre = Math.floor(Math.random() * 10);
+    console.log(nombre);
+    if (nombre < 4) {
+      resolve("És menor que 4.");
     } else {
-      reject("És menor que 5.");
+      reject("És més gran que 4");
     }
   });
 }
-numeroMayorMenor5()
+nombreMesMenys4()
   .then((resolve) => console.log(resolve))
   .catch((reject) => console.error(reject));
-
-numeroMayorMenor5();
 
 /* N1 E2 Crea una arrow function "numeroMajorMenor5" que rebi un paràmetre "nombre" i una funció callback 
 "imprimir_resultat"; i  "numeroMajorMenor5" passi a la funció  "imprimir_resultat" dos missatges diferents
