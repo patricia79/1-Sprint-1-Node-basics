@@ -2,10 +2,8 @@
 Crea una funció que mostri per consola el nom d'usuari al invocar-la passant-li el nom com a paràmetre.*/
 
 function showName(name) {
-    console.log("Hi " + name);
+  console.log("Hi " + name);
 }
-
-
 showName("Patricia");
 
 /*N2 E1
@@ -13,11 +11,9 @@ Mostra per consola el nom i cognoms de l'usuari mitjançant template literals, g
 referenciant-les en la impressió del missatge.*/
 
 var persona = {
-
-    nom: "Patricia",
-    cognom: "González"
-
-}
+  nom: "Patricia",
+  cognom: "González",
+};
 
 var presentacio = `Hola, sóc la ${persona.nom} ${persona.cognom}.`;
 
@@ -27,9 +23,9 @@ console.log(presentacio);
 Invoca una funció que retorni un valor des de dins d'una template literal.*/
 
 function showName2() {
-    var name5 = 'Patricia González'
-    var name6 = `My name is ${name5}`;
-    return name6;
+  var name5 = "Patricia González";
+  var name6 = `My name is ${name5}`;
+  return name6;
 }
 
 console.log(`Hola ${showName2()}`);
@@ -41,42 +37,38 @@ al 9 deu vegades.*/
 
 let arrayFunc = [];
 
-let contar = _ => {
-    for (let i = 0; i < 10; i++) {
-        console.log(i);
-    }
-    console.log("fin")
-}
-
+let contar = (_) => {
+  for (let i = 0; i < 10; i++) {
+    console.log(i);
+  }
+  console.log("fin");
+};
 
 while (arrayFunc.length < 10) {
-    arrayFunc.push(contar);
-
+  arrayFunc.push(contar);
 }
 
 for (let i = 0; i < 10; i++) {
-    (arrayFunc[i])();
+  arrayFunc[i]();
 }
 
 console.log(arrayFunc);
 
+arrayFunc = new Array(10); //crea array buida q tindrà 10 posicions
 
-
-let arrayFunc = new Array(10); //crea array buida q tindrà 10 posicions
-
-let contar = _ => {
-    for (let i = 0; i < arrayFunc.length; i++) {
-        console.log(i);
-    }
-    console.log("fin")
-}
+contar = (_) => {
+  for (let i = 0; i < arrayFunc.length; i++) {
+    console.log(i);
+  }
+  console.log("fin");
+};
 
 for (let i = 0; i < arrayFunc.length; i++) {
-    arrayFunc[i] = contar;
+  arrayFunc[i] = contar;
 }
 
 for (let i = 0; i < 10; i++) {
-    (arrayFunc[i])();
+  arrayFunc[i]();
 }
 
 console.log(arrayFunc);
@@ -85,5 +77,5 @@ Crea una funció anònima autoinvocable igualada a una variable que mostri per c
 rebut com a paràmetre.*/
 
 saludar = (function (name) {
-    console.log(`¡Hola, ${name}!`);
+  console.log(`¡Hola, ${name}!`);
 })("Patricia");
