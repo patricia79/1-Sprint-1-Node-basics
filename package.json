@@ -18,5 +18,8 @@
   "homepage": "https://github.com/patricia79/PGG#readme",
   "devDependencies": {
     "jest": "^27.4.3"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.15"
   }
 }

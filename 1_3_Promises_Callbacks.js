@@ -19,7 +19,7 @@ nombreMesMenys4()
 
 /* N1 E2 Crea una arrow function "numeroMajorMenor5" que rebi un paràmetre "nombre" i una funció callback 
 "imprimir_resultat"; i  "numeroMajorMenor5" passi a la funció  "imprimir_resultat" dos missatges diferents
-(que s'imprimirà per consola) en funció del paràmetre rebut "nombre".*/
+(que s'imprimirà per consola) en funció del paràmetre rebut "nombre".
 
 let imprimir_resultat = function imprimir(resultat) {
   console.log(resultat);
@@ -40,7 +40,7 @@ numeroMajorMenor5(nombre, imprimir_resultat);
 
 
 /* N2 E1 Donats els objectes employees i salaries, crea una arrow function getEmployee que retorni 
-una Promise efectuant la cerca en l'objecte "employees" pel seu id */
+una Promise efectuant la cerca en l'objecte "employees" pel seu id 
 
 let employees = [
   {
@@ -73,7 +73,6 @@ let salaries = [
 ];
 
 let employee = new Object();
-// index_treballador[posició array]
 
 let getEmployee = (id) => {
   return new Promise((resolve, reject) => {
@@ -98,7 +97,7 @@ getEmployee(1)
   });
 
 /*N2 E2 Crea una altra arrow function getSalary que rebi com a paràmetre un objecte employee i retorni el
-seu salari. */
+seu salari. 
 
 let getSalary = (employee) => {
   return new Promise((resolve, reject) => {
@@ -126,7 +125,7 @@ getSalary(employee1)
 
   .catch((reject) => console.error(reject));
 
-/* N2 E3 Invoca la primera funció getEmployee i després getSalary niant l'execució de les dues promises.*/
+/* N2 E3 Invoca la primera funció getEmployee i després getSalary niant l'execució de les dues promises.
 
 getEmployee(1)
   .then((resolve) => {
@@ -137,9 +136,9 @@ getEmployee(1)
   .catch((rejecte) => console.log(rejecte));
 
 /*N3 E1 Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el
-mostri per  la consola. */
+mostri per  la consola. 
 
 getEmployee(5)
   .then((id) => getSalary(id))
   .then((salary) => console.log("n3e1 - El seu salari es: " + salary))
-  .catch((id) => console.error("n3e1 " + id + " no trobat"));
+  .catch((id) => console.error("n3e1 " + id + " no trobat"));*/
