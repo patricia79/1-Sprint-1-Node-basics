@@ -13,7 +13,7 @@ Crea una funció que, en executar-la, escrigui una frase en un fitxer.*/
 
 let missatgeN1E2 = "Aquest és el missatge de Nadal";
 
-let missatgeN1E2 = async () => {
+missatgeN1E2 = async () => {
   try {
     await fsp.writeFile("someText.txt", missatgeN1E2);
     console.log("N1E2:");

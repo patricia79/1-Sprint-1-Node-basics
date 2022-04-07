@@ -51,6 +51,9 @@ getEmployee(1)
 let getSalary = (employee) => {
   return new Promise((resolve, reject) => {
     let index = 0;
+   
+
+    
     for (index; index < salaries.length; index++) {
       if (salaries[index].id == employee.id) {
         resolve(salaries[index].salary);
