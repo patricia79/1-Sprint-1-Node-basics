@@ -1,4 +1,3 @@
-
 /* N1 Ex1 OK MAX
 Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.*/
 
@@ -8,7 +7,6 @@ let missatge = () => {
   }, 1000);
 };
 missatge();
-
 
 /* N1 Ex2 OK MAX
 Crea una funció que, en executar-la, escrigui una frase en un fitxer.*/
@@ -30,17 +28,14 @@ missatgeN1E2();
 Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.*/
 
 function contFitxer(fitxer) {
-
-    fs.readFile(fitxer, 'utf8', function (err, data) {
-        console.log(data);
-    });
+  fs.readFile(fitxer, "utf8", function (err, data) {
+    console.log(data);
+  });
 }
 
-contFitxer('fitxerN1Ex2.txt');
+contFitxer("fitxerN1Ex2.txt");
 
-
-
- /*N2 Ex1 OK MED
+/*N2 Ex1 OK MED
 Crea una funció que comprimeixi el fitxer del nivell 1.*/
 
 console.log("Nivel 2:");
@@ -68,4 +63,3 @@ showFilesFromDir();
 
 Crea una funció que llisti per la consola el contingut del directori d'usuari de l'ordinador
 utilizant Node Child Processes.*/
- 
