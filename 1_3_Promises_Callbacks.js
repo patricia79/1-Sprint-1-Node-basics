@@ -21,22 +21,22 @@ nombreMesMenys4()
 "imprimir_resultat"; i  "numeroMajorMenor5" passi a la funció  "imprimir_resultat" dos missatges diferents
 (que s'imprimirà per consola) en funció del paràmetre rebut "nombre".
 
-let imprimir_resultat = function imprimir(resultat) {
-  console.log(resultat);
-};
-
-nombre = Math.floor(Math.random() * 10);
-
-numeroMajorMenor5 = (nombre, callback) => {
-  if (nombre > 5) {
-    let resultat = `${nombre} És més gran que 5.`;
-    callback(resultat);
-  } else {
-    resultat = `${nombre} És menor que 5.`;
-    callback(resultat);
-  }
-};
-numeroMajorMenor5(nombre, imprimir_resultat);
+imprimir_resultat = (resultat) => {
+    console.log(resultat);
+  };
+  
+  nombre = Math.floor(Math.random() * 10);
+  
+  numeroMajorMenor5 = (nombre, callback) => {
+    if (nombre > 5) {
+      let resultat = `${nombre} És més gran que 5.`;
+      callback(resultat);
+    } else {
+      resultat = `${nombre} És menor que 5.`;
+      callback(resultat);
+    }
+  };
+  numeroMajorMenor5(nombre, imprimir_resultat);
 
 
  N2 E1 Donats els objectes employees i salaries, crea una arrow function getEmployee que retorni 
