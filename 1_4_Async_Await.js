@@ -102,3 +102,4 @@ asyncFunction2();
 
 /*N3 E1
 Captura tots els errors possibles dels nivells 1 i 2 */
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
