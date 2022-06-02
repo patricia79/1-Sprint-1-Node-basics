@@ -77,10 +77,18 @@ Crea una funció asíncrona que rebi un id d'empleat i imprimeixi per pantalla e
 salari, usant les funcions que has definit a l'exercici anterior */
 
 let asyncEmployee = async (id) => {
+
+  try{
+
     let employee = await getEmployee(id)
     let salary = await getSalary(employee)
     console.log(`L'Empleat ${employee.id} amb salari ${salary.id}`)
 }
+catch(error){
+    console.error(error)
+}
+}
+
 
 asyncEmployee(1);
 
@@ -95,11 +103,17 @@ asyncFunction2 = () => {
 }
 
 async function asyncFunction2() {
+
+  try {
     console.log(await asyncFunction2());
+  }
+  catch (error) {
+    console.log(error);
+  }
+   
 }
 
 asyncFunction2();
 
 /*N3 E1
 Captura tots els errors possibles dels nivells 1 i 2 */
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
