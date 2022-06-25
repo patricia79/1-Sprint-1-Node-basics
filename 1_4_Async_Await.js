@@ -40,6 +40,8 @@ let getEmployee = (id) => {
   });
 };
 
+
+
 getEmployee(1)
   .then((resolve) => {
     console.log(resolve);

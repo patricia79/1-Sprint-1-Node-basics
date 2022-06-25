@@ -119,12 +119,12 @@ asyncFunction2();
 
 
 getEmployee(1)
-  .then((resolved) => {
+  .then((resolve) => {
     console.log("n2e3:");
-    return getSalary(resolved);
+    return getSalary(resolve);
   })
-  .then((resolved) => console.log(resolved))
-  .catch((rejected) => console.log(rejected));
+  .then((resolve) => console.log(resolve))
+  .catch((rejecte) => console.log(rejecte));
 
 
 //Verifica mitjançant tests l'execució de l'exercici Async / Await Nivell 2 Exercici 1 utilitzant Jest Fake Timers.
