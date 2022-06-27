@@ -25,89 +25,79 @@ let salaries = [{
     id: 3,
     salary: 2000
 }];
-let employee = new Object();
 
-let getEmployee = (id) => {
+let getEmployee = id => {
   return new Promise((resolve, reject) => {
-    let index_treballador = employees.findIndex(
-      (employee) => employee.id === id
-    );
-    if (index_treballador >= 0) {
-      resolve(employees[index_treballador]);
-    } else {
-      reject("Error, no hi ha cap dada de cap treballador");
-    }
-  });
-};
-
-getEmployee(1)
-  .then((resolve) => {
-    console.log(resolve);
+      let findEmployee = employees.find(employee => employee.id === id)
+      if (findEmployee) {
+          resolve(findEmployee.name);
+      } else {
+          reject(`Posa un nombre de l'1 al 3`);
+      }
   })
-  .catch((error) => {
-    console.error(error);
-  });
+}
 
-let getSalary = (employee) => {
+getEmployee(2)
+  .then(resolve => console.log(resolve))
+  .catch(error => console.log(error))
+
+let getSalary = (id) => {
   return new Promise((resolve, reject) => {
-    for (let i = 0; i < salaries.length; i++) {
-    if (salaries[i].id == employee.id) {
-        resolve(salaries[i].salary);
-        break;
+      let findSalary = salaries.find(salario => salario.id === id);
+      if (findSalary) {
+          resolve(findSalary.salary);
+      } else {
+          reject('La Id no existeix');
       }
-      if (i >= salaries.length) {
-        reject("Empleat no trobat");
-      }
-    }
   });
 };
 
-let employee1 = new Object();
-employee1.id = 3;
-getSalary(employee1)
-  .then((salary) => console.log("L'Empleat te un salari de: " + salary))
-  .catch((reject) => console.error(reject));
+getSalary(2)
+  .then(good => console.log(good))
+  .catch(err => console.log(err));
 
+  
 /* N1 E2  OK MAX
 Crea una funció asíncrona que rebi un id d'empleat i imprimeixi per pantalla el nom de l'empleat i el seu 
 salari, usant les funcions que has definit a l'exercici anterior */
 
-let asyncEmployee = async (id) => {
+// asinFunc === asinRes
+async function asinFunc(id) {
+  try {
+      const employee = await getEmployee(id);
+      const salary = await getSalary(id);
+      return console.log(`L'empleat és el : ${employee} i el seu salari és: ${salary}`);
+  } catch (errorMessage) {
+      console.log('Error')
+  }
+}
+asinFunc(1);
 
-  try{
-
-    let employee = await getEmployee(id)
-    let salary = await getSalary(employee)
-    console.log(`L'Empleat ${employee.id} amb salari ${salary.id}`)
-}
-catch(error){
-    console.error(error)
-}
-}
-asyncEmployee(1);
 
 /* N2 E1 OK MAX
 Crea una nova funció asíncrona que cridi a una altra que retorni una Promise que efectuï la seva funció
  resolve() després de 2 segons de la seva invocació */
 
-asyncFunction2 = () => {
-    return new Promise(resolve => {
-        setTimeout(() => resolve("2 seconds later..."), 2000)
-    })
-}
+ const mostrar2Secs = () => {
+  const promise = new Promise((resolve) => {
+      setTimeout(() => {
+          resolve('Missatge després de 2 segons');
+      }, 2000);
+  });
+  return promise;
+};
 
-async function asyncFunction2() {
-
+const callFunction = async () => {
   try {
-    console.log(await asyncFunction2());
-  }
-  catch (error) {
-    console.log(error);
-  }
-   
-}
+      const mostrar = await mostrar2Secs();
+      console.log(mostrar);
 
-asyncFunction2();
+  } catch (error) {
+      console.log(error);
+  }
+};
+
+callFunction();
 
 /*N3 E1
 Captura tots els errors possibles dels nivells 1 i 2 */
