@@ -40,8 +40,6 @@ let getEmployee = (id) => {
   });
 };
 
-
-
 getEmployee(1)
   .then((resolve) => {
     console.log(resolve);
@@ -52,16 +50,12 @@ getEmployee(1)
 
 let getSalary = (employee) => {
   return new Promise((resolve, reject) => {
-    let index = 0;
-   
-
-    
-    for (index; index < salaries.length; index++) {
-      if (salaries[index].id == employee.id) {
-        resolve(salaries[index].salary);
+    for (let i = 0; i < salaries.length; i++) {
+    if (salaries[i].id == employee.id) {
+        resolve(salaries[i].salary);
         break;
       }
-      if (index >= salaries.length) {
+      if (i >= salaries.length) {
         reject("Empleat no trobat");
       }
     }
@@ -90,8 +84,6 @@ catch(error){
     console.error(error)
 }
 }
-
-
 asyncEmployee(1);
 
 /* N2 E1 OK MAX

@@ -53,7 +53,6 @@ let salaries = [{
   id: 3,
   salary: 2000
 }];
-let employee = new Object();
 
 let getEmployee = (id) => {
 return new Promise((resolve, reject) => {
@@ -80,8 +79,6 @@ let getSalary = (employee) => {
 return new Promise((resolve, reject) => {
   let index = 0;
  
-
-  
   for (index; index < salaries.length; index++) {
     if (salaries[index].id == employee.id) {
       resolve(salaries[index].salary);
