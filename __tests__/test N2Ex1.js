@@ -5,12 +5,6 @@ Nivell 2
 Crea una nova funció asíncrona que cridi a una altra que retorni una Promise que efectuï la seva funció 
 resolve() després de 2 segons de la seva invocació*/
 
-const { addition,
-    substraction,
-    multiplication,
-    division
-} = require('../app/operacions');
-
 const { getEmployee, getSalary
 } = require('../app/AsyncAwait-N1-E1');
 
